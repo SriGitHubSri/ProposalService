@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proposal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: proposal
+  template:
+    metadata:
+      labels:
+        app: proposal
+    spec:
+      containers:
+      - name: proposal
+        image: gcr.io/steel-wharf-305823/proposal:latest
+        ports:
+        - containerPort: 44302
